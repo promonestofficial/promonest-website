@@ -1,0 +1,9 @@
+import type {Metadata} from "next";
+import {CouponCard,type Coupon} from "@/components/coupon-card";
+export const metadata:Metadata={title:"Coupon Codes & Discount Deals",description:"Browse coupon codes, discount codes and online deals from popular stores on PromoNest."};
+const items:Coupon[]=[
+{id:1,store:"Nike",logo:"N",offer:"Up to 30% off selected styles",detail:"Save on selected footwear, apparel and accessories.",code:"NEST30",kind:"Code",verified:true,expires:"Nov 30, 2026"},
+{id:2,store:"Adidas",logo:"A",offer:"Extra 20% off your order",detail:"An extra saving on selected items at checkout.",code:"SAVE20",kind:"Code",verified:true,expires:"Nov 15, 2026"},
+{id:3,store:"AliExpress",logo:"A",offer:"Deals from 10% off",detail:"Explore seasonal savings across popular categories.",code:"NEST10",kind:"Deal",verified:false,expires:"Nov 20, 2026"},
+{id:4,store:"Amazon",logo:"a",offer:"Discover daily deals",detail:"Browse offers across electronics, home and more.",code:"NESTDEAL",kind:"Deal",verified:false,expires:"Nov 25, 2026"}];
+export default function Coupons(){return <main className="page-main container"><div className="eyebrow">SAVE SMARTER</div><h1 className="page-title">Coupon codes & <em>deals.</em></h1><p className="page-intro">Browse promo codes, discount codes and special offers. Check each retailer’s terms before checkout.</p><div className="coupon-grid">{items.map(c=><CouponCard coupon={c} key={c.id}/>)}</div><p className="disclaimer">Important: Coupon examples in this starter site are placeholders, not confirmed active offers. Verify every code and retailer link before publishing.</p></main>}
